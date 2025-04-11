@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Form Pengajuan Konseling</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- Izitoast -->
+  <link rel="stylesheet" href="../../assets/css/iziToast.min.css">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block" style="color: rgb(100, 96, 96);">Mahasiswa</div></a>
+            <div class="dropdown-menu dropdown-menu-right"> 
+              <div class="dropdown-title">Logged in 5 min ago</div>
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="features-activities.html" class="dropdown-item has-icon">
+                <i class="fas fa-bolt"></i> Activities
+              </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Konseling Mahasiswa</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index.html">STB</a>
+          </div>
+          
+          <ul class="sidebar-menu mt-5">
+            <!-- <li><a class="nav-link" href="../index.html"><i class="far fa-square"></i> <span>Dashboard</span></a></li> -->
+            <li><a class="nav-link" href="index.html"><i class="fas fa-square"></i> <span style="font-size: 0.8rem;">Form Pengajuan Konseling </span></a></li>
+            <li class="menu-header">Pengajuan Konseling</li>
+            <li><a class="nav-link" href="data-konseling-mahasiswa.html"><i class="fas fa-square"></i> <span>Data</span></a></li>
+            </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <div class="section-header-back">
+              <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <h1>Buat Pengajuan Konseling</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+              <div class="breadcrumb-item">Form Pengajuan Konseling</div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h6>Isi Form Dibawah Untuk Melanjutkan Konseling</h6>
+                  </div>
+                  <div class="card-body">
+                    <form id="form-mahasiswa-konseling" method="post" enctype="multipart/form-data">
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
+                        <div class="col-sm-12 col-md-7">
+                          <input type="text" name="nama" id="nama" class="form-control textInput">
+                          <div id="msg"></div>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIM</label>
+                        <div class="col-sm-12 col-md-7">
+                          <input type="text" name="nim" id="nim" class="form-control textInput">
+                          <div id="msg"></div>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kelas</label>
+                        <div class="col-sm-12 col-md-7">
+                          <input type="text" name="kelas" id="kelas" class="form-control textInput">
+                          <div id="msg"></div>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Prodi</label>
+                        <div class="col-sm-12 col-md-7">
+                          <select class="form-control selectric" name="prodi" id="prodi">
+                            <option>Informatika</option>
+                            <option>Bisnis Digital</option>
+                            <option>Kebidanan</option>
+                            <option>Agribisnis</option>
+                            <option>Kehutanan</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor HP</label>
+                        <div class="col-sm-12 col-md-7">
+                          <input type="text" name="nomor_hp" id="nomor_hp" class="form-control textInput">
+                          <div id="msg" style="color: red;"></div>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
+                        <div class="col-sm-12 col-md-7">
+                          <input type="text" name="email" id="email" class="form-control textInput">
+                          <div id="msg" ></div>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kategori</label>
+                        <div class="col-sm-12 col-md-7">
+                          <select class="form-control selectric" name="kategori" id="kategori">
+                            <option>Penyesuaian diri dalam akademik</option>
+                            <option>Permasalahan pribadi/keluarga</option>
+                            <option>Pertemanan</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7">
+                          <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="card">
+                              <div class="card-body text-center">
+                                <button  type="submit" class="btn btn-primary" id="toastr-2">Submit</button>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <button type="submit" id="btn-create-konseling" class="btn btn-primary">Submit</button> -->
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="../../assets/js/stisla.js"></script>
+
+  <script src="../../assets/js/izitoast/dist/js/iziToast.min.js"></script>
+
+  <!-- Template JS File -->
+  <script src="../../assets/js/scripts.js"></script>
+  <script src="../../assets/js/custom.js"></script>
+  <script src="../../assets/js/modules-toastr.js"></script>
+  <!-- Page Specif../../ic JS File -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <script src="../../assets/js/page/features-post-create.js"></script>
+  <script  type="text/javascript" src="../api/crud/post-konseling.js"></script>
+</body>
+</html>
