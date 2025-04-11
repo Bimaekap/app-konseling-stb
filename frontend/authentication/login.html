@@ -1,0 +1,91 @@
+<!--
+=========================================================
+Login Form Bootstrap 1
+=========================================================
+
+Product Page: https://uifresh.net
+Copyright 2021 UIFresh (https://uifresh.net)
+Coded by UIFresh
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Stisla Css -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="../../assets/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/uf-style.css">
+
+    <title>Login Konseling</title>
+  </head>
+  <!-- #TODO buat validasi login -->
+  <body>
+    <div class="uf-form-signin">
+      <div class="text-center">
+        <a href="#!"><img src="../../assets/img/logo.png" alt="" width="100" height="100"></a>
+      <h1 class="text-white h3">Konseling</h1>
+      </div>
+      <form class="mt-4 needs-validation" id="form-login" method="POST" enctype="multipart/form-data" novalidate="">
+        <div class="form-group">
+          <div class=" input-group uf-input-group input-group-lg mb-3">
+            <span class="input-group-text fa fa-user"></span>
+            <input type="text" class="form-control" id="username" name="username"placeholder="Username" required=""> 
+            <div class="invalid-feedback">
+              Username Salah
+            </div>
+          </div>
+        </div>
+       <div class="form-group">
+        <div class=" input-group uf-input-group input-group-lg mb-3">
+          <span class="input-group-text fa fa-lock"></span>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="">
+          <div class="invalid-feedback">
+            Password Salah
+          </div>
+        </div>
+       </div>
+     
+     
+        <div class="d-grid mb-4">
+          <button type="submit" id="btn-login" class="btn uf-btn-primary btn-lg">Login</button>
+        </div>
+     
+        <div class="mt-4 text-center">
+          <span class="text-white">Belum Punya Akun ?</span>
+          <a href="register.html">Daftar</a>
+        </div>
+      </form>
+    </div>
+
+    <p id="responseMessage"></p>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../assets/js/stisla.js"></script>
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    
+    <!-- Template JS File -->
+    <script src="../../assets/js/scripts.js"></script>
+    <script src="../../assets/js/custom.js"></script>
+
+    <!-- TOAST -->
+    <!-- axios  jsDelivr CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--  -->
+    <script type="text/javascript" src="../api/authentication.js"></script>
+  </body>
+</html>

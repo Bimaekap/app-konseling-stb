@@ -1,0 +1,15 @@
+#TODO Utama 
+[] buat input untuk biro, dengan dua waktu pilihan jadwal (tanggal,bulan,tahun,jam & tempat)
+[] buat validasi konselor ketika siapa yg klik approve akan menjadi penanggung jawab
+[] button lanjutkan ke dosen dan dosen menerima data
+[] kirim ke dosen pembimbing sesuai dengan data mahasiswa pada halaman -detail pengajuan-
+[] button print untuk mencetak data laporan konseling
+[] pada detail pengajuan untuk isi data dikirim-ke bisa di isi data masih kosong karna belum di update oleh konselor
+
+#NOTE SELESAI
+[x] ambil data berdasarkan id mahasiswa yang melapor untuk user mahasiswa
+[x] buat middleware sesuaikan siapa yg login
+[x] buat search by pk in pengajuan konseling berdasarkan siapa yg login
+[x] set dom profile yang login pada halaman detail konseling
+[x] button cancel untuk menghapus konseling
+[x] https://react-free-admin-dashboard-template.netlify.app/module/toastr buat notifikasi
