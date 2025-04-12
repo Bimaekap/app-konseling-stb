@@ -34,6 +34,14 @@ const Konseling = sequelize.define('pengajuan_konselings', {
     type: Sequelize.STRING,
     allowNull:true
   },
+  jadwal_satu:{
+    type: Sequelize.STRING,
+    allowNull:true
+  },
+  jadwal_dua:{
+    type: Sequelize.STRING,
+    allowNull:true
+  },
   kategori: {
     type: Sequelize.STRING,
     allowNull: false,

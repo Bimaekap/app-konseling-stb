@@ -73,5 +73,32 @@ router.delete('/delete/:id', async (req, res) => {
     res.status(500).json({ message: 'Tidak Dapat Menghapus File' });
   }
 });
+
+router.post('/set-waktu/:id',async (req,res) => {
+  const id = req.params.id
+  const updatedData = {
+  jadwalSatu: req.body.jadwalSatu,
+  jadwalDua: req.body.jadwalSatu
+  };
+
+  try {
+    const setWaktu = await Konseling.findByPk(id)
+    .then(konseling => {
+      if(konseling !== null){
+        // res.json(konseling)
+        konseling.jadwalSatu = updatedData.jadwalSatu
+        konseling.jadwalDua = updatedData.jadwalDua
+        return konseling.save()        
+      }else{
+
+        res.json("data tidak ada")
+      }
+
+    })
+    .catch(err => console.log(err))
+  }catch(error){
+    res.status().json("Data Tidak Ditemukan")
+  }
+})
 export default router;
 
