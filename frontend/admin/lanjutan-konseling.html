@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Invoice &mdash; Stisla</title>
+  <title>Jadwal Konseling</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,14 +35,10 @@
             <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div id="user-profile-name" class="d-sm-none d-lg-inline-block" style="color: rgb(100, 96, 96);">Guest</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
            
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a>
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -90,19 +86,28 @@
                 <div class="card-header">
                   <h4>Pengaturan Jadwal Konseling</h4>
                 </div>
-                <div class="card-body">
-                  <form method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data"></form>
+                  <div class="card-body">
+                  
                     <div class="form-group">
                       <label>Jadwal Satu</label>
-                      <input type="text" name="jadwal-satu" id="jadwal-satu" class="form-control datetimepicker">
+                      <input type="text" name="jadwal-satu" id="jadwal-satu" class="form-control datetimepicker" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Lokasi Satu</label>
+                      <input type="text" name="jadwal-satu" id="lokasi-satu" class="form-control textInput" required>
                     </div>
                     <div class="form-group">
                       <label>Jadwal Dua</label>
-                      <input type="text" name="jadwal-dua" id="jadwal-dua" class="form-control datetimepicker">
+                      <input type="text" name="jadwal-dua" id="jadwal-dua" class="form-control datetimepicker" required>
                     </div>
-                    <button id="btn-submit" class="btn btn-primary" type="submit">Simpan</button>
-                  </form>
-                </div>
+                    <div class="form-group">
+                      <label>Lokasi Dua</label>
+                      <input type="text" name="jadwal-satu" id="lokasi-dua" class="form-control textInput" required>
+                    </div>
+                    <button type="submit" id="btn-submit" class="btn btn-primary" >Simpan</button>
+                  </div>
+                </form>
               </div>
           </div>
         </section>

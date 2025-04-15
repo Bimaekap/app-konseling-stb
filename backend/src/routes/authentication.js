@@ -16,6 +16,7 @@ router.post('/auth', async (req,res) => {
       //  if (!nama) return res.send(responseJson(true, "username wajib diisi"));
       //  if (!password) return res.send(responseJson(true, "password wajib diisi"));
       try{
+        console.log(req.body)
        const { nama, password } = req.body;
         const user = await User.findOne(
           { where: { nama : nama },
@@ -24,6 +25,7 @@ router.post('/auth', async (req,res) => {
         .then(data => {
           return res.json(data)
         })
+   
       } catch(err){
         console.error(err)
       }

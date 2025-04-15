@@ -1,13 +1,13 @@
-
+// axios.defaults.baseURL = '';
 let textInput = document.getElementById('nomor_hp')
 let msg = document.getElementById('msg')
+document.getElementById("user-profile-name").innerHTML = localStorage.getItem("NAMA_AUTH")
 
 let formValidation = () => {
     if(textInput === ""){
-        console.log(textInput)
         msg.innerHTML = 'tidak boleh kosong'
     }else{
-        console.log('berhasil')
+        console.log("berhasil")
         msg.innerHTML = ""
     }
 }
@@ -15,6 +15,7 @@ document.getElementById("form-mahasiswa-konseling").addEventListener("submit",
     async function(event) {
         event.preventDefault()
         formValidation();
+        const user_id = localStorage.getItem('ID_AUTH')
         const nama = document.getElementById("nama").value
         const nim = document.getElementById("nim").value
         const kelas = document.getElementById("kelas").value
@@ -25,6 +26,7 @@ document.getElementById("form-mahasiswa-konseling").addEventListener("submit",
         const status = 0
 
         const konselingData = {
+            user_id:user_id,
             nama:nama,
             nim:nim,
             kelas:kelas,
@@ -34,13 +36,20 @@ document.getElementById("form-mahasiswa-konseling").addEventListener("submit",
             kategori:kategori,
             status: status
         }
-
-        await axios.post('http://localhost:5500/konseling', konselingData)
-        .then((res) => {
+        await axios.post('http://localhost:5500/konseling',konselingData)
+        .then(res => {
+            console.log(res)
             console.log(res.data)
-            alert('data berhasil di simpan')
-        }).catch((error) => {
-            console.log(error)
+            res.status(200).json(res.data)
         })
+        .catch(function (error) {
+            if(error.response){
+                console.log(error)
+            }else if(error.request){
+                console.log(error.request)
+            }
+       
+        })
+        location.reload();
 })
 

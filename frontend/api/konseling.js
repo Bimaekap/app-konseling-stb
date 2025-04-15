@@ -49,22 +49,25 @@ document.getElementById("user-profile-name").innerHTML = localStorage.getItem("N
 
 // ! Post pengajuan konseling mahasiswa
  async function tampilkanDetail(id) {
+  const user_id = localStorage.getItem('ID_AUTH')
+  
   try {
-    await axios.get(`/konseling/${id}`)
+    await axios.get(`/konseling/edit/${id}`)
     .then(data => {
       // #TODO : simpan data table row pengajuan_konseling pada localStorage js
-      localStorage.setItem('ID',data.data[0].id)
-      localStorage.setItem('NAMA_MAHASISWA',data.data[0].nama)
-      localStorage.setItem('NIM',data.data[0].nim)
-      localStorage.setItem('EMAIL',data.data[0].email)
-      localStorage.setItem('KATEGORI',data.data[0].kategori)
-      localStorage.setItem('KELAS',data.data[0].kelas)
-      localStorage.setItem('NOMOR_HP',data.data[0].nomor_hp)
-      localStorage.setItem('PRODI',data.data[0].prodi)
-      localStorage.setItem('DOSEN_PEMBIMBING',data.data[0].dosen_pembimbing)
+      localStorage.setItem('ID',data.data.id)
+      localStorage.setItem('USER_ID', user_id)
+      localStorage.setItem('NAMA_MAHASISWA',data.data.nama)
+      localStorage.setItem('NIM',data.data.nim)
+      localStorage.setItem('EMAIL',data.data.email)
+      localStorage.setItem('KATEGORI',data.data.kategori)
+      localStorage.setItem('KELAS',data.data.kelas)
+      localStorage.setItem('NOMOR_HP',data.data.nomor_hp)
+      localStorage.setItem('PRODI',data.data.prodi)
+      localStorage.setItem('DOSEN_PEMBIMBING',data.data.dosen_pembimbing)
       // [] arahkan ke page untuk detail pengajuan
+      // console.log(data)
       location.assign('../admin/detail-pengajuan.html')
-      console.log(data)
     })
   }catch(err){
     console.log(err)

@@ -30,18 +30,11 @@
             <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div id="user-profile-name" class="d-sm-none d-lg-inline-block" style="color: rgb(100, 96, 96);"></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
-              <a href="features-activities.html" class="dropdown-item has-icon">
-                <i class="fas fa-bolt"></i> Activities
-              </a>
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="#" id="btn-logout" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -87,7 +80,6 @@
             <p class="section-lead">
               Data Pengajuan Konseling Yang Sudah Pernah Saya Ajukan
             </p>
-
             <div class="row">
               <div class="col-12">
                 <div class="card">
@@ -105,6 +97,8 @@
                             <th>Kategori</th>
                             <th>Nama Dosen</th>
                             <th>Dibuat Pada</th>
+                            <th>Jadwal & Lokasi Pertama </th>
+                            <th>Jadwal & Lokasi Kedua</th>
                             <th>Selesai Pada</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -145,8 +139,9 @@
   <!-- Page Specif../../ic JS File -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <script type="text/javascript" src="../api/konseling-mahasiswa.js"></script>
+  <script type="text/javascript" src="../api/data-konseling-mahasiswa.js"></script>
 
   <script src="../../assets/js/page/features-post-create.js"></script>
+  <script  type="text/javascript" src="../api/logout.js"></script>
 </body>
 </html>

@@ -2,6 +2,10 @@ import {Sequelize, DataTypes} from 'sequelize';
 import sequelize from '../db.js';
 
 const Konseling = sequelize.define('pengajuan_konselings', {
+  user_id: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
   nama: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -34,14 +38,6 @@ const Konseling = sequelize.define('pengajuan_konselings', {
     type: Sequelize.STRING,
     allowNull:true
   },
-  jadwal_satu:{
-    type: Sequelize.STRING,
-    allowNull:true
-  },
-  jadwal_dua:{
-    type: Sequelize.STRING,
-    allowNull:true
-  },
   kategori: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -49,7 +45,26 @@ const Konseling = sequelize.define('pengajuan_konselings', {
   status: {
     type: Sequelize.BOOLEAN,
     allowNull:false,
-  }
+  },
+  jadwal_satu:{
+    type:Sequelize.STRING,
+    allowNull:true
+  },
+  lokasi_satu:{
+    type:Sequelize.STRING,
+    allowNull:true
+  },
+  jadwal_dua:{
+    type:Sequelize.STRING,
+    allowNull:true
+  },
+  lokasi_dua:{
+    type:Sequelize.STRING,
+    allowNull:true
+  },
+},
+{
+  timestamps:true
 });
 
 export default Konseling
