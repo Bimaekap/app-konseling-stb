@@ -50,6 +50,5 @@ document.getElementById("form-mahasiswa-konseling").addEventListener("submit",
             }
        
         })
-        location.reload();
 })
 

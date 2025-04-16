@@ -1,15 +1,22 @@
 
 // ! cari berdasarkan user_id user 
-idAuth = localStorage.getItem('ID_AUTH')
-console.log(idAuth)
-axios.get(`http://localhost:5500/konseling/${idAuth}`)
+
+axios.defaults.baseURL = 'http://localhost:5500';
+idAuth = "1"
+axios.get(`/konseling/${idAuth}`)
 .then(function(response) {
-    console.log(response.data)
     let result = response.data
     let rows = ''
     Array.from(result).forEach(konseling => {
             // #TODO masih ada yg harus di perbaiki
+            if(konseling.id == undefined){
+                rows = 
+                `<tr>
            
+                 <td>Tidak Ada Data</td>
+            </tr>
+                `
+            }else{
                 rows += 
                 `<tr>
                 <td>
@@ -25,16 +32,16 @@ axios.get(`http://localhost:5500/konseling/${idAuth}`)
                  <td>${konseling.jadwal_dua ? konseling.jadwal_dua : "Jadwal Belum Di Buat"} & ${konseling.lokasi_dua ? konseling.lokasi_dua : "Lokasi Belum Di Buat"}</td>
                  <td><div class="badge badge-danger">Belum</div></td>
                  <td><div class="badge badge-success">On Progress</div></td>
-                 <td><button onclick="tampilkanDetail(${konseling.id})" class="btn btn-primary">Pilih Jadwal</button></td>
-    
+                 <td><button onclick="buttonPilihJadwal(${konseling.id})" class="btn btn-primary">Pilih Jadwal</button></td>
             </tr>
                 `
-                
-            
-            
-            // document.getElementById('table-konseling-mahasiswa').innerHTML = rows
+            }
             
         })
         document.getElementById('table-konseling-mahasiswa').innerHTML = rows
     })
 .catch(err => console.log(err))
+
+async function buttonPilihJadwal(id) {
+    location.assign('../mahasiswa/jadwal-konseling-mahasiswa.html')
+}

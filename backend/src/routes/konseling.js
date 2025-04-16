@@ -9,6 +9,10 @@ const __dirname = path.resolve()
 let adminPath = path.join(__dirname,'frontend','admin')
 
 
+router.get('/index', async(req,res) => {
+  location.assign('../authentication/login.html')
+})
+
 // Route Post/Simpan Konseling Untuk Mahasiswa
 router.post('/', async (req, res) => {
   try {
@@ -142,7 +146,18 @@ router.post('/set-waktu/:id',async (req,res) => {
 
 // Route pilih jadwal
 router.post('/pilih-jadwal/:id', async (req,res) => {
+  const id = req.params.id
+  try {
+      await Konseling.findByPk(id)
+      .then(function(data) {
+        res.status(200).json(data)
+      })
+      .catch(error => {
+          console.log(error)
+      })
+  }catch(e) {
 
+  }
 })
 export default router;
 
