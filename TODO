@@ -1,13 +1,15 @@
-#TODO Utama 
-[] mahasiswa pilih waktu dan tempat untuk konseling
+#TODO 
+[] ubah status menjadi akan dilakasanan pada menu mahasiswa/data-konseling-mahasiswa.html
 [] button lanjutkan ke dosen dan dosen menerima data
 [] kirim ke dosen pembimbing sesuai dengan data mahasiswa pada halaman -detail pengajuan-
 [] button print untuk mencetak data laporan konseling
-[x] pada detail pengajuan untuk isi data dikirim-ke bisa di isi data masih kosong karna belum di update oleh konselor
-[] buat validasi konselor ketika siapa yg klik approve akan menjadi penanggung jawab
+[] updata data dosen
 
 #NOTE SELESAI
+[x] buat validasi konselor ketika siapa yg klik approve akan menjadi penanggung jawab
+[x] pada detail pengajuan untuk isi data dikirim-ke bisa di isi data masih kosong karna belum di update oleh konselor
 [x] update data tabel pada detail-konseling.html, tampilkan data jadwal-satu,jadwal-dua,lokasi-satu,lokasi-dua
+[x] mahasiswa pilih waktu dan tempat untuk konseling
 [x] buat input untuk biro, dengan dua waktu pilihan jadwal (tanggal,bulan,tahun,jam & tempat)
 [x] ambil data berdasarkan 'id' mahasiswa yang melapor untuk user mahasiswa
 [x] buat middleware sesuaikan siapa yg login

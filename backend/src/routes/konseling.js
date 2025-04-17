@@ -3,6 +3,8 @@
 import express from "express"
 const router = express.Router();
 import Konseling from "../models/konseling.js"
+import ProsesKonseling from "../models/proses-konseling.js"
+import DataKonselingDosen from "../models/data_konseling_dosen.js"
 import path from "path";
 const __dirname = path.resolve()
 
@@ -17,7 +19,6 @@ router.get('/index', async(req,res) => {
 router.post('/', async (req, res) => {
   try {
     const konselingCreate = await Konseling.create(req.body);
-    console.log(req.body)
     // res.status(201).send('created')
     res.status(201).json(konselingCreate);
   } catch (error) {
@@ -30,7 +31,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const konselingData = await Konseling.findAll();
-    res.json(konselingData);
+    const totalKonseling = await Konseling.count();
+    res.status(200).json({konselingData,totalKonseling});
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch data konseling.' });
   }
@@ -132,6 +134,7 @@ router.post('/set-waktu/:id',async (req,res) => {
       lokasi_satu:updatedData.lokasiSatu,
       jadwal_dua:updatedData.jadwalDua,
       lokasi_dua:updatedData.lokasiDua,
+      status:1,
     },  {
      where:{id:req.params.id} 
     })
@@ -145,7 +148,7 @@ router.post('/set-waktu/:id',async (req,res) => {
 })
 
 // Route pilih jadwal
-router.post('/pilih-jadwal/:id', async (req,res) => {
+router.get('/pilih-jadwal/:id', async (req,res) => {
   const id = req.params.id
   try {
       await Konseling.findByPk(id)
@@ -159,5 +162,37 @@ router.post('/pilih-jadwal/:id', async (req,res) => {
 
   }
 })
+
+// ! Router update pilihan jadwal untuk mahasiswa
+router.post('/jadwal-pilihan/create', async (req,res) => {
+  let data = req.body
+  try{
+    const jadwalPilihan = await ProsesKonseling.create(data)
+    return res.status(201).json(jadwalPilihan)
+  }catch(e) {
+    res.status(400).json(e)
+  }
+})
+
+// Update siapa konselor nya
+router.post('/update/konselor/:id', async (req,res) => {
+  //! ambil data dari req.body
+  try {
+    const updateKonselor = await Konseling.update({
+      konselor : "telor",
+    },{
+      where:{id: req.params.id}
+    })
+    .then(function(konseling){
+      res.status(201).json(konseling)
+    })
+    .catch(err => console.log(err))
+
+  }catch(err) {
+    console.log(err)
+  }
+} )
+
+
 export default router;
 

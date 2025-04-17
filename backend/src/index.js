@@ -32,3 +32,4 @@ app.use('/konseling', konselingRoutes)
 // #NOTE route edit konseling
 // #NOTE Port
 app.listen(PORT,() => console.log(`Server running on port : http://localhost:${PORT}`))
+// app.listen(PORT,() => console.log(`Server running on port : http://localhost:${PORT}`))

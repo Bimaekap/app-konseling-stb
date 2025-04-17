@@ -1,27 +1,30 @@
 import {Sequelize, DataTypes} from 'sequelize';
 import sequelize from '../db.js';
 
-const ProsesKonseling = sequelize.define('proses_konselings', {
-  pengajuan_konseling_id: {
-    type: Sequelize.STRING,
-    allowNull: true,
+const DataKonselingDosen = sequelize.define('data_konseling_dosen', {
+  konseling_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
   },
   nama_mahasiswa: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  jadwal_pilihan: {
+  kategori: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  lokasi_pilihan:{
+  jadwal_konseling: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  lokasi_konseling:{
     type: Sequelize.STRING,
     allowNull: false
   },
-  
 },
 {
   timestamps:true
 });
 
-export default ProsesKonseling
+export default DataKonselingDosen

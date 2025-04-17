@@ -16,6 +16,22 @@ $("#toastr-2").click(function() {
   });
 });
 
+$("#toastr-atur-waktu").click(function() {
+  iziToast.success({
+    title: 'Berhasil',
+    message: 'Jadwal Konseling Telah Dikirim',
+    position: 'topRight'
+  });
+});
+
+$("#toastr-admin-set-waktu").click(function() {
+  iziToast.success({
+    title: 'Berhasil',
+    message: 'Jadwal Konseling Telah Dibuat',
+    position: 'topRight'
+  });
+});
+
 $("#toastr-3").click(function() {
   iziToast.warning({
     title: 'Hello, world!',

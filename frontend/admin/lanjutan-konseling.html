@@ -18,6 +18,8 @@
 
   <!-- CSS Libraries -->
 
+  <!-- Izitoast -->
+  <link rel="stylesheet" href="../../assets/css/iziToast.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
@@ -29,6 +31,8 @@
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -105,7 +109,19 @@
                       <label>Lokasi Dua</label>
                       <input type="text" name="jadwal-satu" id="lokasi-dua" class="form-control textInput" required>
                     </div>
-                    <button type="submit" id="btn-submit" class="btn btn-primary" >Simpan</button>
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                      <div class="col-sm-12 col-md-7">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <button type="submit" class="btn btn-primary" id="btn-set-waktu">Submit</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <button type="submit" id="btn-create-konseling" class="btn btn-primary">Submit</button> -->
+                      </div>
+                    </div>
                   </div>
                 </form>
               </div>
@@ -124,17 +140,20 @@
   <script src="../../assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+   
+  <!-- axios CDN -->
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <!-- Template JS File -->
   <script src="../../assets/js/scripts.js"></script>
   <script src="../../assets/js/custom.js"></script>
-  <!-- axios CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../../assets/js/modules-toastr.js"></script>
 
   <!-- datetimepicker -->
   <script src="../../assets/js/bootstrap-timepicker.min.js"></script>
   <script src="../../assets/js/daterangepicker.js"></script>
+  <script src="../../assets/js/izitoast/dist/js/iziToast.min.js"></script>
   <!-- <script src="../../assets/js/forms-advanced-forms.js"></script> -->
   <script src="../../assets/js/bootstrap-colorpicker.min.js"></script>
   <script src="../../assets/js/bootstrap-timepicker.min.js"></script>

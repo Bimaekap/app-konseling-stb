@@ -1,7 +1,8 @@
-axios.defaults.baseURL = 'http://localhost:5500/konseling/';
+// axios.defaults.baseURL = 'http://localhost:5500/konseling/';
+axios.defaults.baseURL = 'https://3d48-202-162-199-56.ngrok-free.app/konseling/';
 
 
-document.getElementById("btn-submit").addEventListener("click",
+document.getElementById("toastr-admin-set-waktu").addEventListener("click",
     async function (event) {
         event.preventDefault()
         const idKonseling = localStorage.getItem("ID")

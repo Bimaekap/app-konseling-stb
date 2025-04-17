@@ -1,11 +1,14 @@
 // #NOTE Menu Ambil Semua Data Konseling Oleh Konselor
 // const getBtn = document.getElementById("get-data")
-axios.defaults.baseURL = 'http://localhost:5500';
+// axios.defaults.baseURL = 'http://localhost:5500';
+
+
+axios.defaults.baseURL = 'https://3d48-202-162-199-56.ngrok-free.app';
 // ! GET
 axios.get('/konseling')
   .then(function (response) {
     // handle success
-    let result = response.data
+    let result = response.data.konselingData
     let rows = ''
     Array.from(result).forEach(user => {
         rows += `<tr>
@@ -21,14 +24,28 @@ axios.get('/konseling')
                      <td>${user.prodi}</td>
                      <td>${user.nomor_hp}</td>
                      <td>${user.email}</td>
+                     <td>Belum Ada Data</td>
                      <td>${user.konselor}</td>
-                     <td>${user.dosen_pembimbing}</td>
                      <td>${user.kategori}</td>
-                     <td><div class="badge badge-danger">Belum</div></td>
+                     <td>${
+                      (() => {
+                        if (user.status == '0') {
+                        return `<div class="badge badge-danger">
+                        Belum Di Approve
+                        </div>`
+                        }else if (user.status =='1'){
+                          return `<div class="badge badge-success">
+                       Jadwal Sudah Di Atur
+                          </div>`
+                        };
+                      })()
+                    }</td>
                      <td><button onclick="tampilkanDetail(${user.id})" class="btn btn-primary">Approve</button></td>
                 </tr>
                     `
     })
+    document.getElementById('total-konseling').innerHTML = response.data.totalKonseling
+    document.getElementById('badge-all').innerHTML = response.data.totalKonseling
     document.getElementById('table-konseling').innerHTML = rows
 })
 .catch(err => console.log(err.response.data))
@@ -53,7 +70,7 @@ document.getElementById("user-profile-name").innerHTML = localStorage.getItem("N
   
   try {
     await axios.get(`/konseling/edit/${id}`)
-    .then(data => {
+    .then(async data =>  {
       // #TODO : simpan data table row pengajuan_konseling pada localStorage js
       localStorage.setItem('ID',data.data.id)
       localStorage.setItem('USER_ID', user_id)
@@ -67,8 +84,21 @@ document.getElementById("user-profile-name").innerHTML = localStorage.getItem("N
       localStorage.setItem('DOSEN_PEMBIMBING',data.data.dosen_pembimbing)
       // [] arahkan ke page untuk detail pengajuan
       // console.log(data)
+      // ! UPDATE DATA DISINI
+     let nama_konselor = localStorage.getItem("NAMA_AUTH");
+
+    const authData = {
+      konselor : "telor"
+    }
+    await axios.post(`/konseling/update/konselor/${id}`, authData)
+
+      console.log(authData)
+      console.log("program jalan")
+
       location.assign('../admin/detail-pengajuan.html')
     })
+
+    
   }catch(err){
     console.log(err)
   }
