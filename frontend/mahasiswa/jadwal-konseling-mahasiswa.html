@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Form Pengajuan Konseling</title>
+  <title>Jadwal</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="../../assets/modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../assets/modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
-
+  <!-- Izitoast -->
+  <link rel="stylesheet" href="../../assets/css/iziToast.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
@@ -25,7 +24,6 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -71,46 +69,47 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Tabel Pengajuan Konseling</h1>
+            <h1>Pilih Jadwal</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item">Tabel Pengajuan Konseling</div>
+              <div class="breadcrumb-item">Pilih Jadwal</div>
             </div>
           </div>
 
           <div class="section-body">
-            <h2 class="section-title">Data Pengajuan Saya </h2>
+            <!-- <h2 class="section-title">Data Pengajuan Saya </h2>
             <p class="section-lead">
               Data Pengajuan Konseling Yang Sudah Pernah Saya Ajukan
-            </p>
+            </p> -->
             <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-striped" id="table-2">
-                        <thead>
-                          <tr>
-                            <th class="text-center">
-                              <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                        <form method="POST">
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pilih Jadwal</label>
+                                <div class="col-sm-12 col-md-7">
+                                <select class="form-control selectric" id="jadwal-select" name="prodi" id="prodi">
+                                    <option>Jadwal Satu</option>
+                                    <option>Jadwal Dua</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                              <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                <div class="col-sm-12 col-md-7">
+                                  <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="card">
+                                      <div class="card-body text-center">
+                                        <button type="submit" class="btn-pilih-jadwal btn btn-primary" id="toastr-atur-waktu">Submit</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                            </th>
-                            <th>Kategori</th>
-                            <th>Nama Dosen</th>
-                            <th>Dibuat Pada</th>
-                            <th>Jadwal & Lokasi Pertama </th>
-                            <th>Jadwal & Lokasi Kedua</th>
-                            <th>Selesai Pada</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody id="table-konseling-mahasiswa">
-                        </tbody>
-                      </table>
+                            </div>
+                        </form>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -128,22 +127,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../../assets/js/stisla.js"></script>
 
-  <script src="../../assets/modules/datatables/media/js/jquery.dataTables.min.js"></script>
-  <script src="../../assets/modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="../../assets/modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+  <script src="../../assets/js/izitoast/dist/js/iziToast.min.js"></script>
 
-  <script src="../../assets/js/page/modules-datatables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-
+  
+  
   <!-- Template JS File -->
   <script src="../../assets/js/scripts.js"></script>
   <script src="../../assets/js/custom.js"></script>
+  <script src="../../assets/js/modules-toastr.js"></script>
+
   <!-- Page Specif../../ic JS File -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <script type="text/javascript" src="../api/data-konseling-mahasiswa.js"></script>
-
-  <script src="../../assets/js/page/features-post-create.js"></script>
+  <script  type="text/javascript" src="../api/pilih-waktu.js"></script>
   <script  type="text/javascript" src="../api/logout.js"></script>
 </body>
 </html>

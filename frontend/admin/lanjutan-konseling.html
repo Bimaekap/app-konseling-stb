@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Invoice &mdash; Stisla</title>
+  <title>Jadwal Konseling</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../assets/css/daterangpicker.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" href="../../assets/css/select2.min.css">
+  <link rel="stylesheet" href="../../assets/css/selectric.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-taginput.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-timepicker.min.css">
 
   <!-- CSS Libraries -->
 
+  <!-- Izitoast -->
+  <link rel="stylesheet" href="../../assets/css/iziToast.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
@@ -22,20 +31,18 @@
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div id="user-profile-name" class="d-sm-none d-lg-inline-block" style="color: rgb(100, 96, 96);">Guest</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
            
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a>
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -78,49 +85,45 @@
               <div class="breadcrumb-item">Laporan Konseling</div>
             </div>
           </div>
-
           <div class="section-body">
             <div class="card">
                 <div class="card-header">
-                  <h4>Date &amp; Time Picker</h4>
+                  <h4>Pengaturan Jadwal Konseling</h4>
                 </div>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label class="d-block">Date Range Picker With Button</label>
-                    <a href="javascript:;" class="btn btn-primary daterange-btn icon-left btn-icon"><i class="fas fa-calendar"></i> Choose Date
-                    </a>
-                  </div>
-                  <div class="form-group">
-                    <label>Date Picker</label>
-                    <input type="text" class="form-control datepicker">
-                  </div>
-                  <div class="form-group">
-                    <label>Date Time Picker</label>
-                    <input type="text" class="form-control datetimepicker">
-                  </div>
-                  <div class="form-group">
-                    <label>Date Range Picker</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-calendar"></i>
+                <form method="POST" enctype="multipart/form-data"></form>
+                  <div class="card-body">
+                  
+                    <div class="form-group">
+                      <label>Jadwal Satu</label>
+                      <input type="text" name="jadwal-satu" id="jadwal-satu" class="form-control datetimepicker" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Lokasi Satu</label>
+                      <input type="text" name="jadwal-satu" id="lokasi-satu" class="form-control textInput" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Jadwal Dua</label>
+                      <input type="text" name="jadwal-dua" id="jadwal-dua" class="form-control datetimepicker" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Lokasi Dua</label>
+                      <input type="text" name="jadwal-satu" id="lokasi-dua" class="form-control textInput" required>
+                    </div>
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                      <div class="col-sm-12 col-md-7">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <button type="submit" class="btn btn-primary" id="btn-set-waktu">Submit</button>
+                            </div>
+                          </div>
                         </div>
+                        <!-- <button type="submit" id="btn-create-konseling" class="btn btn-primary">Submit</button> -->
                       </div>
-                      <input type="text" class="form-control daterange-cus">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Time Picker</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-clock"></i>
-                        </div>
-                      </div>
-                      <input type="text" class="form-control timepicker">
-                    </div>
-                  </div>
-                </div>
+                </form>
               </div>
           </div>
         </section>
@@ -137,12 +140,27 @@
   <script src="../../assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+   
+  <!-- axios CDN -->
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <!-- Template JS File -->
   <script src="../../assets/js/scripts.js"></script>
   <script src="../../assets/js/custom.js"></script>
-  <script type="text/javascript" src="../api/detail-konseling.js"></script>
+  <script src="../../assets/js/modules-toastr.js"></script>
+
+  <!-- datetimepicker -->
+  <script src="../../assets/js/bootstrap-timepicker.min.js"></script>
+  <script src="../../assets/js/daterangepicker.js"></script>
+  <script src="../../assets/js/izitoast/dist/js/iziToast.min.js"></script>
+  <!-- <script src="../../assets/js/forms-advanced-forms.js"></script> -->
+  <script src="../../assets/js/bootstrap-colorpicker.min.js"></script>
+  <script src="../../assets/js/bootstrap-timepicker.min.js"></script>
+  <script src="../../assets/js/select2.full.min.js"></script>
+  <script src="../../assets/js/jquery.selectric.min.js"></script>
+  <!-- <script type="text/javascript" src="../api/detail-konseling.js"></script> -->
+  <script type="text/javascript" src="../api/set-waktu-konseling.js"></script>
 
   <!-- Page Specific JS File -->
 </body>

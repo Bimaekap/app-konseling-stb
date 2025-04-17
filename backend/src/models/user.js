@@ -25,7 +25,7 @@ const Users = sequelize.define('users',{
   role:{
     type:Sequelize.STRING,
     allowNull:true
-  },
+  }
 }, 
   {
     tableName:'users',

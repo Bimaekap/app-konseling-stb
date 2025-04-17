@@ -22,22 +22,19 @@
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div id="user-profile-name" class="d-sm-none d-lg-inline-block" style="color: rgb(100, 96, 96);">Guest</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
            
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="#" id="btn-logout" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -54,10 +51,9 @@
           </div>
           
           <ul class="sidebar-menu">
-            <li><a class="nav-link" href="index.html"><i class="fas fa-square"></i> <span>Dashboard</span></a></li>
-            <li class="menu-header">Konseling Mahasiswa</li>
-            <li><a class="nav-link" href="data-bimbingan-konseling.html"><i class="fas fa-square"></i> <span>Data</span></a></li>
-
+            <li class="menu-header">Pengajuan Konseling Mahasiswa</li>
+            <li><a class="nav-link" href="index.html"><i class="fas fa-square"></i> <span>Home</span></a></li>
+         
               <!-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Konseling</span></a>
                 <ul class="dropdown-menu">
@@ -85,9 +81,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="invoice-title">
-                      <h4>Detail</h4>
                     </div>
-                    <hr>
                     <div class="row">
                       <div class="col-md-6">
                         <address>
@@ -97,14 +91,15 @@
                             <p id="nama-prodi"></p><br>
                             <strong>Nama Mahasiswa:</strong>
                             <p id="nama-mahasiswa"></p>
+                            <strong>Kategori:</strong>
+                            <p id="kategori"></p>
                         </address>
                       </div>
-                   
                     </div>
                   </div>
                 </div>
 
-                <div class="row mt-4">
+                <!-- <div class="row mt-4">
                   <div class="col-md-12">
                     <div class="section-title">Isi Laporan</div>
                     <div>
@@ -112,14 +107,23 @@
                         <p>Selamat Siang pak saya izin ingin melaporkan hasil nilai ujian saya, nilai mata kuliah informatika saya , mohon bantuannya pak</p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <hr>
               <div class="text-md-right">
                 <div class="float-lg-left mb-lg-0 mb-3">
-                  <button id="btn-lanjutkan-konselor" class="btn btn-primary btn-icon icon-left"><i class="fas fa-credit-card"></i>Lanjutkan</button>
+                  <button id="btn-lanjutkan-konselor" class="btn btn-primary btn-icon icon-left"><i class="fas fa-credit-card"></i>Atur Jadwal</button>
                   <!-- #TODO buat button cancel disini untuk menghapus otomatis datanya -->
-                  <button onclick="history.back()" id="cancel-konselor" class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i> Cancel</button>
+                  <button onclick="history.back()" id="cancel-konselor" class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i>Batal</button>
+                  <!-- Sweet alert batal -->
+                  <!-- <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="mb-2">Warning Message</div>
+                        <button class="btn btn-primary" id="swal-3">Launch</button>
+                      </div>
+                    </div>
+                  </div> -->
                 </div>
                 
                 <button class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i> Print</button>
@@ -147,7 +151,7 @@
   <script src="../../assets/js/custom.js"></script>
   <script type="text/javascript" src="../api/detail-konseling.js"></script>
   <script type="text/javascript" src="../api/konseling-mahasiswa.js"></script>
-
+  <script  type="text/javascript" src="../api/logout.js"></script>
   <!-- Page Specific JS File -->
 </body>
 </html>
